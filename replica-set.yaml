@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: nginx
+    labels:
+        color: blue
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            color: blue
+    template:
+      metadata:
+        labels:
+            color: blue
+      spec:
+        containers:
+        - name: nginx
+          image: nginx:stable-perl
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-pv-new
+spec:
+  capacity:
+    storage: 10Gi                 # EBS size
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce               # EBS volumes only support RWO
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ebs-sc
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4

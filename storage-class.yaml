@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer   # Delays volume provisioning until pod scheduling
+reclaimPolicy: Retain                     # Retains the volume when PVC is deleted
+parameters:
+  type: gp3                                # EBS volume type (gp2, gp3, io1, etc.)
+  fsType: ext4                             # File system type
+  iopsPerGB: "50"                          # IOPS per GB (only for io1/io2)
+  encrypted: "true"                        # Enable encryption

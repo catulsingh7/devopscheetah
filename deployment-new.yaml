@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nginx-new
+    labels:
+        color: blu
+spec:
+    replicas: 10
+    selector:
+        matchLabels:
+            color: blu
+    template:
+      metadata:
+        labels:
+            color: blu
+      spec:
+        containers:
+        - name: nginx
+          image: nginx:stable-perl
+          
+
+
+    
+        
+          
+

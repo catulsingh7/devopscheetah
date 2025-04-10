@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nginx
+    labels:
+        color: blue
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            color: blue
+    template:
+      metadata:
+        labels:
+            color: blue
+      spec:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: color
+                  operator: In
+                  values:
+                  - blue
+              topologyKey: topology.kubernetes.io/zone
+        containers:
+        - name: nginx
+          image: nginx:stable-perl      
+        
+          
+

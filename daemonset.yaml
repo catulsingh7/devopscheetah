@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+    name: nginx
+    labels:
+        color: blue
+spec:
+    selector:
+        matchLabels:
+            color: blue
+    template:
+      metadata:
+        labels:
+            color: blue
+      spec:
+        containers:
+        - name: nginx
+          image: nginx:perl
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+

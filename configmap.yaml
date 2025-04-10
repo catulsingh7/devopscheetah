@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devopscheetah-configmap
+data:
+  total_teams: "10"
+#    host: "india"
+#    broadcast: "jio-hotstar"
+
+#    team-members.properties: |
+#        csk=11
+#        rcb=11
+#        dc=11
+#        pbsk=12
+
+    
+
+    
+
